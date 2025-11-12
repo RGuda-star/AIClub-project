@@ -144,10 +144,10 @@ def load_lora_model():
     # Load LoRA adapters
 
     model = PeftModel.from_pretrained(
-        model,                              # pass base model here
-        pretrained_model_name_or_path=model_path_str,
-        repo_type="local"                   # tell PEFT it’s local
-    )
+    model,  # base HuggingFace model object
+    pretrained_model_name_or_path=model_path_str,
+    repo_type="local"
+)
 
 
     
