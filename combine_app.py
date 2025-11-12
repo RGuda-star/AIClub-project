@@ -82,13 +82,14 @@ def load_lora_model():
     """Load LoRA fine-tuned model"""
 
     model_path = Path(__file__).resolve().parent / "model" / "bert_lora_model"
+    model_path_str = str(model_path)
  # Adjust path as needed
 
     
 
     # Load base model first
 
-    config = PeftConfig.from_pretrained(model_path)
+    config = PeftConfig.from_pretrained(model_path_str)
 
     model = BertForSequenceClassification.from_pretrained(
 
@@ -142,7 +143,7 @@ def load_lora_model():
 
     # Load LoRA adapters
 
-    model = PeftModel.from_pretrained(model, model_path)
+    model = PeftModel.from_pretrained(model, model_path_str)
 
     
 
