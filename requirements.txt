@@ -1,8 +1,6 @@
 streamlit
 seaborn
-spacy==3.7.2
-blis==0.7.9
-
+spacy
 python-dotenv
 ipykernel
 nltk
