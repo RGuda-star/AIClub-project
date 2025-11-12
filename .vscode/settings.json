@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./venv",
-        "./src"
+        "./src",
+        "./webapp"
     ]
 }
