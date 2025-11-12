@@ -12,6 +12,7 @@ Jinja2==3.1.6
 joblib == 1.5.2
 MarkupSafe==3.0.3
 murmurhash==1.0.13
+nltk == 3.9.2
 numpy==2.3.4
 packaging==25.0
 peft == 0.17.1
