@@ -145,9 +145,11 @@ def load_lora_model():
 
     model = PeftModel.from_pretrained(
         model,
-        model_path_str,
-        repo_type="local"   # <--- tell PEFT this is a local folder
+        adapter_name=None,
+        pretrained_model_name_or_path=model_path_str,  # explicitly keyword
+        repo_type="local"                               # explicitly tell it this is local
     )
+
 
     
 
