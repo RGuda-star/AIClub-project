@@ -1,0 +1,12 @@
+{
+  "best_params": {
+    "learning_rate": 0.3,
+    "max_depth": 3,
+    "n_estimators": 500,
+    "reg_alpha": 1.0,
+    "reg_lambda": 0.5
+  },
+  "best_cv_score": 0.8744726029188495,
+  "test_auc_best": 0.8740611936418733,
+  "num_original_features": 19
+}
