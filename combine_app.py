@@ -82,7 +82,7 @@ def load_lora_model():
     """Load LoRA fine-tuned model"""
 
     model_path = Path.cwd() / "model" / "bert_lora_model"
-    model_path_str = r"/Users/rishabhsaiguda/AI Club Project Folder/AIClub-project/model/bert_lora_model"
+    model_path_str = r"/Users/rishabhsaiguda/AI_Club_Project_Folder/AIClub-project/model/bert_lora_model"
  # Adjust path as needed
 
     
