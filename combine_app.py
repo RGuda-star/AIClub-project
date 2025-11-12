@@ -143,7 +143,11 @@ def load_lora_model():
 
     # Load LoRA adapters
 
-    model = PeftModel.from_pretrained(model, model_path_str)
+    model = PeftModel.from_pretrained(
+        model,
+        model_path_str,
+        repo_type="local"   # <--- tell PEFT this is a local folder
+    )
 
     
 
