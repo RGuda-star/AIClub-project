@@ -5,6 +5,7 @@ import pandas as pd
 import torch
 
 import sys, os 
+import peft 
 
 from peft import PeftModel, PeftConfig
 
@@ -75,13 +76,11 @@ def get_xgb_model():
 
 @st.cache_resource
 
-@st.cache_resource
-
 def load_lora_model():
 
     """Load LoRA fine-tuned model"""
-
-    model_path = Path(__file__).resolve().parent / "model" / "bert_lora_model"
+    base_model_name = "bert-base-uncased"
+    model_path = Path("model/bert_lora_model").resolve()
     model_path_str = str(model_path)
  # Adjust path as needed
 
@@ -144,10 +143,9 @@ def load_lora_model():
     # Load LoRA adapters
 
     model = PeftModel.from_pretrained(
-    model,  # base HuggingFace model object
-    pretrained_model_name_or_path=model_path_str,
-    repo_type="local"
-)
+        model, model_path_str,is_trainable=False, device_map="cpu",
+        repo_type="local", local_files_only=True
+        )
 
 
     
@@ -462,6 +460,7 @@ def main_bert():
 
 
     with col1:
+        
 
         st.write("**Enter Review Text:**")
 
@@ -484,6 +483,7 @@ def main_bert():
         with col2:
 
             st.write("**Analysis Results:**")
+            
 
         
 
