@@ -81,15 +81,14 @@ def load_lora_model():
 
     """Load LoRA fine-tuned model"""
 
-    model_path = Path.cwd() / "model" / "bert_lora_model"
-    model_path_str = r"/Users/rishabhsaiguda/AI_Club_Project_Folder/AIClub-project/model/bert_lora_model"
+    model_path = Path(__file__).resolve().parent / "model" / "bert_lora_model"
  # Adjust path as needed
 
     
 
     # Load base model first
 
-    config = PeftConfig.from_pretrained(model_path_str)
+    config = PeftConfig.from_pretrained(model_path)
 
     model = BertForSequenceClassification.from_pretrained(
 
@@ -143,7 +142,7 @@ def load_lora_model():
 
     # Load LoRA adapters
 
-    model = PeftModel.from_pretrained(model, model_path_str)
+    model = PeftModel.from_pretrained(model, model_path)
 
     
 
