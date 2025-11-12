@@ -5,7 +5,6 @@ import pandas as pd
 import torch
 
 import sys, os 
-import peft 
 
 from peft import PeftModel, PeftConfig
 
@@ -85,18 +84,27 @@ def load_lora_model():
 
     # Load base model first
 
-    config = PeftConfig.from_pretrained(str(model_path), local_files_only=True)
+    config = PeftConfig.from_pretrained(model_path)
 
     model = BertForSequenceClassification.from_pretrained(
 
+
+
         config.base_model_name_or_path,
+
+
 
         num_labels=2,
 
+
+
         return_dict=True,
 
+
+
         torch_dtype=torch.float32,
-        local_files_only=True,
+
+
 
     )
 
@@ -141,7 +149,10 @@ def load_lora_model():
     # Load LoRA adapters
 
     # New Line: Pass the base model (model) and the local path string
-    model = PeftModel.from_pretrained(model, str(model_path), local_files_only=True)
+    model = PeftModel.from_pretrained(model, model_path)
+
+
+
 
 
 
