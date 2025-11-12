@@ -84,7 +84,7 @@ def load_lora_model():
 
     # Load base model first
 
-    config = PeftConfig.from_pretrained(model_path)
+    config = PeftConfig.from_pretrained(str(model_path), local_files_only=True)
 
     model = BertForSequenceClassification.from_pretrained(
 
@@ -95,12 +95,13 @@ def load_lora_model():
         return_dict=True,
 
         torch_dtype=torch.float32,
+        local_files_only=True,
 
     )
 
     
 
-    tokenizer = BertTokenizerFast.from_pretrained(config.base_model_name_or_path)
+    tokenizer = BertTokenizerFast.from_pretrained(config.base_model_name_or_path, local_files_only=True,)
 
     
 
@@ -138,7 +139,10 @@ def load_lora_model():
 
     # Load LoRA adapters
 
-    model = PeftModel.from_pretrained(model, model_path)
+    # New Line: Pass the base model (model) and the local path string
+    model = PeftModel.from_pretrained(model, str(model_path), local_files_only=True)
+
+
 
     
 
@@ -792,7 +796,6 @@ def combine_main():
 
 if __name__ == "__main__":
     combine_main()
-
 
 
 
