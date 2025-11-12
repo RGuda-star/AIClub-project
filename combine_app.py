@@ -35,7 +35,7 @@ from collections import Counter
 
 from utils.constants import CATEGORY_MAPPING # You shouldn’t have to change this unless you placed constants elsewhere
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 
 from preprocess import preprocess_text
 @st.cache_resource
@@ -65,7 +65,7 @@ def get_xgb_model():
 
 # 1. Create a Path object to your saved model (i.e. model_name.pkl)
     
-    xgb_model_path = Path(__file__).resolve().parent.parent / "model" / "review_classifier.pkl"
+    xgb_model_path = os.path.join("model", "review_classifier.pkl")
 # 2. Load the model using joblib
     best_model = joblib.load(xgb_model_path)
     return {"best_model": best_model}
@@ -81,13 +81,15 @@ def load_lora_model():
 
     """Load LoRA fine-tuned model"""
 
-    model_path = Path(__file__).resolve().parent.parent / "model" / "bert_lora_model" # Adjust path as needed
+    model_path = Path.cwd() / "model" / "bert_lora_model"
+    model_path_str = r"/Users/rishabhsaiguda/AI Club Project Folder/AIClub-project/model/bert_lora_model"
+ # Adjust path as needed
 
     
 
     # Load base model first
 
-    config = PeftConfig.from_pretrained(model_path)
+    config = PeftConfig.from_pretrained(model_path_str)
 
     model = BertForSequenceClassification.from_pretrained(
 
@@ -141,7 +143,7 @@ def load_lora_model():
 
     # Load LoRA adapters
 
-    model = PeftModel.from_pretrained(model, model_path)
+    model = PeftModel.from_pretrained(model, model_path_str)
 
     
 
