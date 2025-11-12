@@ -5,6 +5,7 @@ import pandas as pd
 import torch
 
 import sys, os 
+import peft 
 
 from peft import PeftModel, PeftConfig
 
