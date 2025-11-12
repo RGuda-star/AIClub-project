@@ -144,9 +144,9 @@ def load_lora_model():
     # Load LoRA adapters
 
     model = PeftModel.from_pretrained(
-        model_id=model,                  # <--- pass the base model here
+        model,                              # pass base model here
         pretrained_model_name_or_path=model_path_str,
-        repo_type="local"
+        repo_type="local"                   # tell PEFT it’s local
     )
 
 
