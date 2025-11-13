@@ -82,7 +82,7 @@ def load_lora_model():
     """Load LoRA fine-tuned model"""
     base_model_name = "bert-base-uncased"
     model_path = Path(__file__).parent / "model" / "bert_lora_model"
-    model_path_str = str(model_path.resolve())
+    model_path_str = str(model_path)
 
  # Adjust path as needed
 
@@ -144,11 +144,13 @@ def load_lora_model():
 
     # Load LoRA adapters
 
+    
     model = PeftModel.from_pretrained(
     model,
     model_path_str,
     is_trainable=False,
     device_map="cpu",
+    repo_type="local",       # <--- add this
     local_files_only=True
 )
 
