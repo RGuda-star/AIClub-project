@@ -730,7 +730,7 @@ def combine_main():
         st.title("Welcome to the Amazon Review Analyzer!")
     st.write("**Try these examples:**")
 
-    example_human = "What a product!"
+    example_human = "This was one of the most amazing thinga I have ever conducted!"
 
     example_ai = "This product is good. It works well. I recommend it to others."
 
