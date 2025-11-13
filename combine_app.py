@@ -81,8 +81,9 @@ def load_lora_model():
 
     """Load LoRA fine-tuned model"""
     base_model_name = "bert-base-uncased"
-    model_path = Path("model/bert_lora_model").resolve()
-    model_path_str = str(model_path)
+    model_path = Path(__file__).parent / "model" / "bert_lora_model"
+    model_path_str = str(model_path.resolve())
+
  # Adjust path as needed
 
     
