@@ -144,9 +144,12 @@ def load_lora_model():
     # Load LoRA adapters
 
     model = PeftModel.from_pretrained(
-        model, model_path_str,is_trainable=False, device_map="cpu",
-        repo_type="local", local_files_only=True
-        )
+    model,
+    model_path_str,
+    is_trainable=False,
+    device_map="cpu",
+    local_files_only=True
+)
 
 
     
