@@ -150,8 +150,7 @@ def load_lora_model():
     model_path_str,
     is_trainable=False,
     device_map="cpu",
-    repo_type="local",       # <--- add this
-    local_files_only=True
+    local_files_only=True   # <--- keep this
 )
 
 
