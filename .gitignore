@@ -5,3 +5,4 @@ bert_model/
 bert_model_final/
 model/
 *.safetensors
+processed_dataset.csv
