@@ -364,7 +364,8 @@ def prepare_features_for_prediction_xlp(text, category="unknown", rating=5.0):
     df = extract_features_xlp(text, rating=rating, include_pos=include_pos)
 
     # Load the feature names your model expects
-    feature_path = Path(__file__).resolve().parent.parent / "model" / "feature_names.json"
+    feature_path = os.path.join("model", "feature_names.json")
+
     with open(feature_path, "r") as f:
         feature_data = json.load(f)
 
