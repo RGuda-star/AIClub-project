@@ -59,11 +59,13 @@ def get_nlp_models():
     # Load spaCy model (disable unused components for speed). This will be used to tokenize our reviews
 
     try:
-        nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+        nlp = spacy.load(str(Path(__file__).parent / "model" / "en_core_web_sm"), disable=["parser", "ner"])
+
     except OSError:
         from spacy.cli import download
         download("en_core_web_sm")
-        nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+        nlp = spacy.load(str(Path(__file__).parent / "model" / "en_core_web_sm"), disable=["parser", "ner"])
+
 
 
     analyzer = SentimentIntensityAnalyzer()
