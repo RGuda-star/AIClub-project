@@ -20,6 +20,7 @@ import string
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 import nltk
+nltk.download('vader_lexicon')
 
 from transformers import BertTokenizerFast, BertForSequenceClassification
 
